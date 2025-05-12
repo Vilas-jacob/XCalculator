@@ -21,7 +21,10 @@ function App() {
   };
 
   const handleCalculate = () => {
-    if (inputs.length === 0) return;
+    if (inputs.length === 0){
+      setResult('Error');
+      return;
+    } 
 
    
     const expression = inputs.join('');
@@ -66,7 +69,12 @@ function App() {
           calculatedResult *= nextOperand;
           break;
         case '/':
-          calculatedResult /= nextOperand;
+          if (calculatedResult === 0 && nextOperand === 0) {
+            calculatedResult = NaN; 
+          } else if (nextOperand === 0) {
+            calculatedResult = 'Infinity'; 
+            calculatedResult /= nextOperand;
+          }
           break;
         default:
           break;
