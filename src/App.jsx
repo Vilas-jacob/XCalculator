@@ -98,7 +98,7 @@ function App() {
           </header>
           <main>
             <div>
-              <input name='Input'value={inputs.join('')} readOnly></input>
+              <input type='text' name='Input'value={inputs.join('')} readOnly></input>
             </div>
             <div>
               <h3>{result}</h3>
